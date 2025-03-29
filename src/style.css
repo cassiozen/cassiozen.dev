@@ -391,6 +391,243 @@ h3::after {
   }
 }
 
+/* Browser DevTools styles */
+.devtools-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0; /* Initially hidden */
+  background-color: #f0f0f0;
+  z-index: 9999;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.devtools-container.dark {
+  background-color: #242424;
+  color: #f0f0f0;
+}
+
+.devtools-header {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  background-color: #f5f5f5;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.devtools-container.dark .devtools-header {
+  background-color: #333;
+  border-bottom: 1px solid #555;
+}
+
+.devtools-tabs {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.devtools-tab {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  border-right: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.devtools-container.dark .devtools-tab {
+  border-right: 1px solid #555;
+  color: #bbb;
+}
+
+.devtools-tab.active {
+  background-color: #fff;
+  color: #333;
+}
+
+.devtools-container.dark .devtools-tab.active {
+  background-color: #242424;
+  color: #fff;
+}
+
+.devtools-close {
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  border-left: 1px solid #ccc;
+}
+
+.devtools-container.dark .devtools-close {
+  border-left: 1px solid #555;
+  color: #ccc;
+}
+
+.devtools-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.console-toolbar {
+  display: flex;
+  padding: 4px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  font-size: 12px;
+}
+
+.devtools-container.dark .console-toolbar {
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.console-filter {
+  margin-right: 8px;
+  color: #666;
+  cursor: pointer;
+}
+
+.devtools-container.dark .console-filter {
+  color: #aaa;
+}
+
+.console-clear {
+  margin-left: auto;
+  color: #666;
+  cursor: pointer;
+}
+
+.devtools-container.dark .console-clear {
+  color: #aaa;
+}
+
+.console-logs {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.console-log-item {
+  padding: 6px 16px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: flex-start;
+}
+
+.devtools-container.dark .console-log-item {
+  border-bottom: 1px solid #333;
+}
+
+.console-log-icon {
+  margin-right: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.devtools-container.dark .console-log-icon {
+  color: #aaa;
+}
+
+.console-log-content {
+  flex: 1;
+  line-height: 1.5;
+  white-space: pre-wrap; /* Preserve formatting and wrap text */
+}
+
+.console-input {
+  display: flex;
+  padding: 8px 16px;
+  border-top: 1px solid #ddd;
+  background-color: #fafafa;
+  align-items: center;
+}
+
+.devtools-container.dark .console-input {
+  background-color: #2a2a2a;
+  border-top: 1px solid #444;
+}
+
+.console-prompt {
+  color: #0074e8;
+  margin-right: 8px;
+}
+
+.devtools-container.dark .console-prompt {
+  color: #5a9ded;
+}
+
+.console-input-field {
+  flex: 1;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 12px;
+  background: none;
+  border: none;
+  color: inherit;
+  outline: none;
+}
+
+.log-info {
+  color: #333;
+}
+
+.log-warn {
+  background-color: #fffbe6;
+  color: #5c3c00;
+}
+
+.log-error {
+  background-color: #fff0f0;
+  color: #5c0000;
+}
+
+.devtools-container.dark .log-info {
+  color: #e8e8e8;
+}
+
+.devtools-container.dark .log-warn {
+  background-color: #332a00;
+  color: #ffcf4d;
+}
+
+.devtools-container.dark .log-error {
+  background-color: #290000;
+  color: #ff8080;
+}
+
+/* Console typing cursor */
+.console-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 14px;
+  background-color: #333;
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: console-blink 1s step-end infinite;
+}
+
+.devtools-container.dark .console-cursor {
+  background-color: #fff;
+}
+
+@keyframes console-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* Desktop-only animations and effects */
 @media (min-width: 768px) {
   body::before {
