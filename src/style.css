@@ -56,7 +56,8 @@ body::before {
   transform: rotate(-12deg);
   opacity: 0.3;
   z-index: -1;
-  filter: blur(120px);
+  /* No blur on mobile by default */
+  filter: none;
   border-radius: 50%;
 }
 
@@ -322,8 +323,10 @@ h3::after {
   border-radius: 50%;
   background: var(--accent-gradient);
   opacity: 0.1;
-  filter: blur(20px);
-  animation: float 15s infinite ease-in-out;
+  
+  /* No animation or blur by default (for mobile performance) */
+  animation: none;
+  filter: none;
 }
 
 .shape:nth-child(1) {
@@ -388,6 +391,18 @@ h3::after {
   }
 }
 
+/* Desktop-only animations and effects */
+@media (min-width: 768px) {
+  body::before {
+    filter: blur(120px);
+  }
+  
+  .shape {
+    filter: blur(20px);
+    animation: float 15s infinite ease-in-out;
+  }
+}
+
 @media (max-width: 768px) {
   .card {
     padding: 40px 30px;
@@ -420,11 +435,22 @@ h3::after {
     padding: 20px;
   }
 
+  /* Further reduce or hide decorative elements on small mobile */
+  .floating-shapes {
+    display: none;
+  }
+
+  body::before {
+    opacity: 0.2;
+  }
+
   .card {
     padding: 30px 20px;
     padding-top: 40px;
     width: 100%;
     box-sizing: border-box;
+    /* Explicitly disable animations */
+    animation-duration: 0.5s;
   }
 
   .terminal-top {
@@ -442,6 +468,8 @@ h3::after {
 
   h1 {
     font-size: 2rem;
+    /* Simplify animation */
+    animation-duration: 0.5s;
   }
 
   .cursor {
@@ -451,6 +479,11 @@ h3::after {
 
   .title {
     font-size: 1.1rem;
+    animation-duration: 0.5s;
+  }
+
+  .bio, .worth-mentioning, .links {
+    animation-duration: 0.5s;
   }
 
   .links {
