@@ -69,13 +69,61 @@ body::before {
 .card {
   background-color: var(--card-bg);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 60px;
   box-shadow: var(--card-shadow);
   overflow: hidden;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadeIn 1s ease-out;
+  padding-top: 60px; /* Increased padding to accommodate terminal top */
+}
+
+.terminal-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: rgba(55, 55, 55, 0.5);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-buttons {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-button.red {
+  background-color: #ff5f56;
+}
+
+.terminal-button.yellow {
+  background-color: #ffbd2e;
+}
+
+.terminal-button.green {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
@@ -87,6 +135,30 @@ h1 {
   -webkit-text-fill-color: transparent;
   animation: fadeInUp 1s ease-out;
   position: relative;
+}
+
+.cursor {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 0.125em;
+  margin-left: 5px;
+  margin-bottom: -0.05em;
+  background-color: var(--text-color);
+  opacity: 0.6;
+  animation: blink 1.5s step-end infinite;
+  vertical-align: baseline;
+  z-index: 5;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .title {
@@ -315,10 +387,19 @@ h3::after {
 @media (max-width: 768px) {
   .card {
     padding: 40px 30px;
+    padding-top: 50px;
+  }
+
+  .terminal-title {
+    font-size: 12px;
   }
 
   h1 {
     font-size: 2.5rem;
+  }
+
+  .cursor {
+    height: 1em;
   }
 
   .title {
@@ -337,12 +418,31 @@ h3::after {
 
   .card {
     padding: 30px 20px;
+    padding-top: 40px;
     width: 100%;
     box-sizing: border-box;
   }
 
+  .terminal-top {
+    height: 25px;
+  }
+
+  .terminal-button {
+    width: 10px;
+    height: 10px;
+  }
+
+  .terminal-title {
+    font-size: 10px;
+  }
+
   h1 {
     font-size: 2rem;
+  }
+
+  .cursor {
+    width: 7px;
+    height: 0.8em;
   }
 
   .title {
