@@ -4,6 +4,18 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   build: {
     minify: 'terser',
-    cssMinify: true
+    cssMinify: true,
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    reportCompressedSize: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   }
 })

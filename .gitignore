@@ -3,6 +3,9 @@
 /.pnp
 .pnp.*
 
+# Build
+/dist
+
 # misc
 .DS_Store
 *.pem
