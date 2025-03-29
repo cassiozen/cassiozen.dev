@@ -1,3 +1,10 @@
+@import "tailwindcss";
+
+/* Global reset - these will be gradually migrated to Tailwind */
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --bg-color: #f8f9fa;
   --text-color: #212529;
@@ -25,136 +32,21 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  padding: 40px;
-  position: relative;
-  overflow-x: hidden;
-}
+/* Body styles migrated to Tailwind */
 
-body::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: var(--accent-gradient);
-  transform: rotate(-12deg);
-  opacity: 0.3;
-  z-index: -1;
-  /* No blur on mobile by default */
-  filter: none;
-  border-radius: 50%;
-}
+/* Container styles migrated to Tailwind */
 
-.container {
-  max-width: 700px;
-  width: 100%;
-  z-index: 1;
-  perspective: 1500px;
-  transform-style: preserve-3d;
-}
-
+/* Card styles migrated to Tailwind */
 .card {
-  background-color: var(--card-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 60px;
-  box-shadow: var(--card-shadow);
-  overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: fadeIn 0.8s ease-out;
-  padding-top: 60px; /* Increased padding to accommodate terminal top */
-  transform-style: preserve-3d;
-  will-change: transform;
+  /* Keep empty to maintain the class for JS targeting */
 }
 
-.terminal-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 30px;
-  background-color: rgba(55, 55, 55, 0.5);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Terminal styles migrated to Tailwind */
 
-.terminal-buttons {
-  position: absolute;
-  left: 12px;
-  display: flex;
-  gap: 8px;
-}
-
-.terminal-button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.terminal-button.red {
-  background-color: #ff5f56;
-}
-
-.terminal-button.yellow {
-  background-color: #ffbd2e;
-}
-
-.terminal-button.green {
-  background-color: #27c93f;
-}
-
-.terminal-title {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  font-weight: 800;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: fadeIn 0.8s ease-out;
-  position: relative;
-}
-
-.cursor {
-  position: relative;
-  display: inline-block;
-  width: 30px;
-  height: 0.125em;
-  margin-left: 5px;
-  margin-bottom: -0.05em;
-  background-color: var(--text-color);
-  opacity: 0.6;
-  animation: blink 1.5s step-end infinite;
-  vertical-align: baseline;
-  z-index: 5;
-}
+/* H1 and cursor styles migrated to Tailwind */
 
 @keyframes blink {
   0%,
@@ -166,118 +58,19 @@ h1 {
   }
 }
 
-.title {
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-  font-weight: 600;
-  animation: fadeIn 0.8s ease-out 0.1s both;
-}
+/* Title styles migrated to Tailwind */
 
-.bio {
-  line-height: 2;
-  margin-bottom: 30px;
-  color: var(--text-color);
-  font-size: 1.1rem;
-  animation: fadeIn 0.8s ease-out 0.2s both;
-}
+/* Bio styles migrated to Tailwind */
 
-.bio strong {
-  font-weight: 600;
-  position: relative;
-  white-space: nowrap;
-  color: var(--emphasis-color);
-}
+/* H3 styles migrated to Tailwind */
 
-h3 {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--secondary-color);
-  margin-bottom: 15px;
-  position: relative;
-  display: inline-block;
-}
+/* Worth mentioning section migrated to Tailwind */
 
-h3::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  bottom: -4px;
-  left: 0;
-  background: var(--accent-gradient);
-  opacity: 0.3;
-}
+/* Links container migrated to Tailwind */
 
-.worth-mentioning {
-  margin-bottom: 40px;
-  animation: fadeIn 0.8s ease-out 0.3s both;
-}
-
-.worth-mentioning ul {
-  list-style: none;
-  padding: 0;
-}
-
-.worth-mentioning li {
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 20px;
-  line-height: 1.6;
-}
-
-.worth-mentioning strong {
-  font-weight: 600;
-  color: var(--emphasis-color);
-}
-
-.worth-mentioning a {
-  color: var(--accent-color);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.worth-mentioning a:hover {
-  text-decoration-thickness: 2px;
-}
-
-.worth-mentioning li::before {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-gradient);
-  left: 0;
-  top: 8px;
-}
-
-.links {
-  display: flex;
-  gap: 20px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-  animation: fadeIn 0.8s ease-out 0.4s both;
-}
-
+/* Link styles migrated to Tailwind, keeping only gradient animation effect */
 .link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 18px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-color);
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+  /* Class kept for JS targeting and for gradient hover effect */
 }
 
 .link::before {
@@ -293,68 +86,11 @@ h3::after {
   z-index: -1;
 }
 
-.link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  color: var(--accent-color);
-}
-
 .link:hover::before {
   left: 0;
 }
 
-.link svg {
-  width: 20px;
-  height: 20px;
-}
-
-.floating-shapes {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--accent-gradient);
-  opacity: 0.1;
-  
-  /* No animation or blur by default (for mobile performance) */
-  animation: none;
-  filter: none;
-}
-
-.shape:nth-child(1) {
-  width: 120px;
-  height: 120px;
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
-  animation-duration: 25s;
-}
-
-.shape:nth-child(2) {
-  width: 150px;
-  height: 150px;
-  top: 60%;
-  right: 5%;
-  animation-delay: 2s;
-  animation-duration: 28s;
-}
-
-.shape:nth-child(3) {
-  width: 80px;
-  height: 80px;
-  bottom: 20%;
-  left: 20%;
-  animation-delay: 4s;
-  animation-duration: 20s;
-}
+/* Floating shapes styles migrated to Tailwind */
 
 @keyframes float {
   0% {
@@ -516,7 +252,7 @@ h3::after {
   flex: 1;
   overflow-y: auto;
   padding: 0;
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 12px;
   line-height: 1.5;
 }
@@ -572,7 +308,7 @@ h3::after {
 
 .console-input-field {
   flex: 1;
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 12px;
   background: none;
   border: none;
@@ -624,107 +360,13 @@ h3::after {
 }
 
 @keyframes console-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Desktop-only animations and effects */
-@media (min-width: 768px) {
-  body::before {
-    filter: blur(120px);
+  0%,
+  100% {
+    opacity: 1;
   }
-  
-  .shape {
-    filter: blur(20px);
-    animation: float 15s infinite ease-in-out;
+  50% {
+    opacity: 0;
   }
 }
 
-@media (max-width: 768px) {
-  .card {
-    padding: 40px 30px;
-    padding-top: 50px;
-  }
-
-  .terminal-title {
-    font-size: 12px;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  .cursor {
-    height: 1em;
-  }
-
-  .title {
-    font-size: 1.25rem;
-  }
-
-  .links {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 20px;
-  }
-
-  /* Further reduce or hide decorative elements on small mobile */
-  .floating-shapes {
-    display: none;
-  }
-
-  body::before {
-    opacity: 0.2;
-  }
-
-  .card {
-    padding: 30px 20px;
-    padding-top: 40px;
-    width: 100%;
-    box-sizing: border-box;
-    /* Explicitly disable animations */
-    animation-duration: 0.5s;
-  }
-
-  .terminal-top {
-    height: 25px;
-  }
-
-  .terminal-button {
-    width: 10px;
-    height: 10px;
-  }
-
-  .terminal-title {
-    font-size: 10px;
-  }
-
-  h1 {
-    font-size: 2rem;
-    /* Simplify animation */
-    animation-duration: 0.5s;
-  }
-
-  .cursor {
-    width: 7px;
-    height: 0.8em;
-  }
-
-  .title {
-    font-size: 1.1rem;
-    animation-duration: 0.5s;
-  }
-
-  .bio, .worth-mentioning, .links {
-    animation-duration: 0.5s;
-  }
-
-  .links {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
+/* Media queries migrated to Tailwind with responsive breakpoints */
