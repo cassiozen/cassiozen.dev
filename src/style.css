@@ -64,6 +64,8 @@ body::before {
   max-width: 700px;
   width: 100%;
   z-index: 1;
+  perspective: 1500px;
+  transform-style: preserve-3d;
 }
 
 .card {
@@ -77,6 +79,8 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadeIn 1s ease-out;
   padding-top: 60px; /* Increased padding to accommodate terminal top */
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .terminal-top {
