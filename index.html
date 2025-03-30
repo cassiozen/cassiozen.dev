@@ -27,35 +27,33 @@
         class="content-[''] absolute top-[-50%] right-[-50%] w-full h-full bg-gradient-to-br from-[#6366f1] via-[#a855f7] to-[#ec4899] rotate-[-12deg] opacity-30 -z-10 rounded-full md:blur-[120px]">
     </div>
 
-    <div class="devtools-container">
-        <div class="devtools-header">
-            <div class="devtools-tabs">
-                <div class="devtools-tab">Elements</div>
-                <div class="devtools-tab active">Console</div>
-                <div class="devtools-tab">Sources</div>
-                <div class="devtools-tab">Network</div>
-                <div class="devtools-tab">Performance</div>
-                <div class="devtools-tab">Memory</div>
-                <div class="devtools-tab">Application</div>
+    <div class="devtools-container fixed right-0 top-0 bottom-0 w-0 bg-[#f0f0f0] dark:bg-[#242424] dark:text-[#f0f0f0] z-[9999] shadow-[-2px_0_8px_rgba(0,0,0,0.2)] font-sans flex flex-col overflow-hidden transition-[width] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+        <div class="flex border-b border-[#ccc] dark:border-[#555] bg-[#f5f5f5] dark:bg-[#333] h-8 flex-shrink-0">
+            <div class="flex flex-1 overflow-x-auto">
+                <div class="px-4 py-2 cursor-pointer text-xs font-medium border-r border-[#ccc] dark:border-r-[#555] dark:text-[#bbb] flex items-center whitespace-nowrap">Elements</div>
+                <div class="px-4 py-2 cursor-pointer text-xs font-medium border-r border-[#ccc] dark:border-r-[#555] dark:text-[#bbb] flex items-center whitespace-nowrap bg-white dark:bg-[#242424] text-[#333] dark:text-white">Console</div>
+                <div class="px-4 py-2 cursor-pointer text-xs font-medium border-r border-[#ccc] dark:border-r-[#555] dark:text-[#bbb] flex items-center whitespace-nowrap">Sources</div>
+                <div class="px-4 py-2 cursor-pointer text-xs font-medium border-r border-[#ccc] dark:border-r-[#555] dark:text-[#bbb] flex items-center whitespace-nowrap">Network</div>
+                <div class="px-4 py-2 cursor-pointer text-xs font-medium border-r border-[#ccc] dark:border-r-[#555] dark:text-[#bbb] flex items-center whitespace-nowrap">Performance</div>
+                <div class="px-4 py-2 cursor-pointer text-xs font-medium border-r border-[#ccc] dark:border-r-[#555] dark:text-[#bbb] flex items-center whitespace-nowrap">Memory</div>
+                <div class="px-4 py-2 cursor-pointer text-xs font-medium border-r border-[#ccc] dark:border-r-[#555] dark:text-[#bbb] flex items-center whitespace-nowrap">Application</div>
             </div>
-            <div class="devtools-close">×</div>
+            <div class="devtools-close w-8 flex items-center justify-center cursor-pointer text-lg border-l border-[#ccc] dark:border-l-[#555] dark:text-[#ccc]">×</div>
         </div>
-        <div class="devtools-panel">
-            <div class="console-toolbar">
-                <div class="console-filter">All levels ▾</div>
-                <div class="console-clear">Clear console</div>
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <div class="flex p-[4px_8px] border-b border-[#e0e0e0] dark:border-[#3a3a3a] items-center text-xs">
+                <div class="mr-2 text-[#666] dark:text-[#aaa] cursor-pointer">All levels ▾</div>
+                <div class="ml-auto text-[#666] dark:text-[#aaa] cursor-pointer">Clear console</div>
             </div>
-            <div class="console-logs">
-                <div class="console-log-item log-info">
-                    <div class="console-log-icon">›</div>
-                    <div class="console-log-content">
-
-                    </div>
+            <div class="console-logs flex-1 overflow-y-auto p-0 font-mono text-xs leading-normal">
+                <div class="console-log-item log-info p-[6px_16px] border-b border-[#eee] dark:border-[#333] flex items-center text-[#333] dark:text-[#e8e8e8]">
+                    <div class="console-log-icon mr-2 font-bold text-[#333] dark:text-[#aaa]">›</div>
+                    <div class="console-log-content flex-1 leading-relaxed whitespace-pre-wrap"></div>
                 </div>
             </div>
-            <div class="console-input">
-                <span class="console-prompt">›</span>
-
+            <div class="console-input flex p-[8px_16px] border-t border-[#ddd] dark:border-[#444] bg-[#fafafa] dark:bg-[#2a2a2a] items-center">
+                <span class="console-prompt text-[#0074e8] dark:text-[#5a9ded] mr-2">›</span>
+                <div class="console-cursor inline-block w-[6px] h-[14px] bg-[#333] dark:bg-white align-middle ml-0.5 animate-[console-blink_1s_step-end_infinite]"></div>
             </div>
         </div>
     </div>
