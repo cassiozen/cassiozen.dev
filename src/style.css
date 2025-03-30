@@ -1,28 +1,6 @@
 @import "tailwindcss";
 
-/* Global reset styles */
-* {
-  box-sizing: border-box;
-}
-
-/* Define accent gradient for special elements */
-:root {
-  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-}
-
-/* Body styles migrated to Tailwind */
-
-/* Container styles migrated to Tailwind */
-
-/* Card styles migrated to Tailwind */
-.card {
-  /* Keep empty to maintain the class for JS targeting */
-}
-
-/* Terminal styles migrated to Tailwind */
-
-/* H1 and cursor styles migrated to Tailwind */
-
+/* Custom animations for special effects */
 @keyframes blink {
   0%,
   100% {
@@ -32,40 +10,6 @@
     opacity: 0;
   }
 }
-
-/* Title styles migrated to Tailwind */
-
-/* Bio styles migrated to Tailwind */
-
-/* H3 styles migrated to Tailwind */
-
-/* Worth mentioning section migrated to Tailwind */
-
-/* Links container migrated to Tailwind */
-
-/* Link styles migrated to Tailwind, keeping only gradient animation effect */
-.link {
-  /* Class kept for JS targeting and for gradient hover effect */
-}
-
-.link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--accent-gradient);
-  opacity: 0.2;
-  transition: all 0.5s ease;
-  z-index: -1;
-}
-
-.link:hover::before {
-  left: 0;
-}
-
-/* Floating shapes styles migrated to Tailwind */
 
 @keyframes float {
   0% {
@@ -102,9 +46,6 @@
   }
 }
 
-/* DevTools styles migrated to Tailwind */
-
-/* Keeping only the blink animation keyframes */
 @keyframes console-blink {
   0%,
   100% {
@@ -114,5 +55,3 @@
     opacity: 0;
   }
 }
-
-/* Media queries migrated to Tailwind with responsive breakpoints */
