@@ -131,10 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const addMessage = (text: string) => {
       // Create and add new message element
       const newMessage = document.createElement("div");
-      newMessage.className = "console-log-item log-info p-[6px_16px] border-b border-[#eee] dark:border-[#333] flex items-center text-[#333] dark:text-[#e8e8e8]";
+      newMessage.className = "console-log-item log-info p-[6px_16px] border-b border-zinc-100 dark:border-zinc-700 flex items-center text-zinc-700 dark:text-zinc-200";
 
       const icon = document.createElement("div");
-      icon.className = "console-log-icon mr-2 font-bold text-[#333] dark:text-[#aaa]";
+      icon.className = "console-log-icon mr-2 font-bold text-zinc-700 dark:text-zinc-400";
       icon.textContent = "›";
 
       const content = document.createElement("div");

@@ -1,38 +1,13 @@
 @import "tailwindcss";
 
-/* Global reset - these will be gradually migrated to Tailwind */
+/* Global reset styles */
 * {
   box-sizing: border-box;
 }
 
+/* Define accent gradient for special elements */
 :root {
-  --bg-color: #f8f9fa;
-  --text-color: #212529;
-  --accent-color: #0d6efd;
-  --emphasis-color: #8250df;
   --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-  --secondary-color: #6c757d;
-  --border-color: #dee2e6;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #111827;
-    --text-color: #f8f9fa;
-    --accent-color: #a3b7ff;
-    --emphasis-color: #d2a8ff;
-    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-    --secondary-color: #adb5bd;
-    --border-color: #374151;
-    --card-bg: rgba(31, 41, 55, 0.8);
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  }
-}
-
-* {
-  box-sizing: border-box;
 }
 
 /* Body styles migrated to Tailwind */
