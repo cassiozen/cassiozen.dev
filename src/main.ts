@@ -39,13 +39,6 @@ await renderPhoto()
 console.log(...styled([me.name, s.banner]))
 console.log(...styled([me.title, s.title], ['  ·  ', s.dim], [me.socialBio, s.subtitle]))
 console.log('')
-console.log(
-  ...styled(
-    ['You made it. That wall of code out there is this script. ', s.body],
-    ['This', s.strong],
-    [' is where it runs.', s.body],
-  ),
-)
 console.log(...styled(['Start with ', s.body], ['about()', s.code], ['  or  ', s.dim], ['help()', s.code]))
 console.log('')
 Group.Collapsed(...styled(['all commands', s.dim]))
