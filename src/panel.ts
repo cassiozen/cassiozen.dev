@@ -21,6 +21,9 @@ const css = [
   `.console form{display:flex;align-items:center;gap:6px;padding:6px 10px;border-top:1px solid color-mix(in srgb,CanvasText 15%,Canvas)}.console form span{color:${accent}}.console form input{flex:1;min-width:0;background:none;border:0;color:inherit;font:inherit;outline:0}`,
 ].join('')
 
+// The one signal that matters: no fine pointer means no devtools to open.
+export const handheld = matchMedia('(pointer: coarse)').matches
+
 type Args = unknown[]
 type Kind = 'log' | 'info' | 'warn' | 'debug' | 'error' | 'input'
 
@@ -121,26 +124,6 @@ const tee = (name: keyof Console, handle: (args: Args) => void) => {
   }
 }
 
-tee('log', (a) => row('log').append(format(a)))
-tee('info', (a) => row('info').append(format(a)))
-tee('debug', (a) => row('debug').append(format(a)))
-tee('warn', (a) => row('warn').append(format(a)))
-tee('error', (a) => row('error').append(format(a)))
-tee('group', (a) => group(true, a))
-tee('groupCollapsed', (a) => group(false, a))
-tee('groupEnd', () => {
-  cursor = groups.pop() ?? out
-})
-tee('table', ([data, cols]) => table(data, Array.isArray(cols) ? cols.map(String) : undefined))
-tee('time', ([label = 'default']) => timers.set(String(label), performance.now()))
-tee('timeEnd', ([label = 'default']) => {
-  const started = timers.get(String(label))
-  if (started !== undefined) row('log').append(`${String(label)}: ${(performance.now() - started).toFixed(2)} ms`)
-})
-tee('assert', ([condition, ...message]) => {
-  if (!condition) row('error').append('Assertion failed: ', format(message))
-})
-
 type Commands = Record<string, () => void>
 
 const run = (commands: Commands, src: string) => {
@@ -157,6 +140,27 @@ const run = (commands: Commands, src: string) => {
 }
 
 export const installPanel = (commands: Commands) => {
+  if (!handheld) return
+  tee('log', (a) => row('log').append(format(a)))
+  tee('info', (a) => row('info').append(format(a)))
+  tee('debug', (a) => row('debug').append(format(a)))
+  tee('warn', (a) => row('warn').append(format(a)))
+  tee('error', (a) => row('error').append(format(a)))
+  tee('group', (a) => group(true, a))
+  tee('groupCollapsed', (a) => group(false, a))
+  tee('groupEnd', () => {
+    cursor = groups.pop() ?? out
+  })
+  tee('table', ([data, cols]) => table(data, Array.isArray(cols) ? cols.map(String) : undefined))
+  tee('time', ([label = 'default']) => timers.set(String(label), performance.now()))
+  tee('timeEnd', ([label = 'default']) => {
+    const started = timers.get(String(label))
+    if (started !== undefined) row('log').append(`${String(label)}: ${(performance.now() - started).toFixed(2)} ms`)
+  })
+  tee('assert', ([condition, ...message]) => {
+    if (!condition) row('error').append('Assertion failed: ', format(message))
+  })
+
   const sheet = new CSSStyleSheet()
   sheet.replaceSync(css)
   document.adoptedStyleSheets.push(sheet)
