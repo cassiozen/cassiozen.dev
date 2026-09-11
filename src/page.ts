@@ -23,7 +23,7 @@ const sentence = [Group.Open.name, mark.the.name, Object.prototype.toString.call
 const css = [
   ':root{color-scheme:light dark}',
   'body{margin:0;padding:16px;background:Canvas;color:color-mix(in srgb,CanvasText 32%,Canvas)}',
-  'body>script,body>pre{display:block;margin:0;font:11px/1.7 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}',
+  'body>script,body>pre{display:block;margin:0;font:13px/1.7 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}',
   'mark{color:inherit;background:none;transition:color .8s,text-shadow .8s}',
   `mark.lit{color:${accent};text-shadow:0 0 12px ${accent};cursor:help;animation:breathe 2.6s ease-in-out infinite alternate}`,
   `@keyframes breathe{to{text-shadow:0 0 3px ${accent}}}`,
