@@ -1,0 +1,35 @@
+src/commands.ts
+  s_9668b2ebba1857::t_312b8dd02243ce 2,18,22,26,37,42
+vite.config.ts
+  s_9668b2ebba1857::t_312b8dd02243ce 1-11,15-17,20,22-24,28,31
+  s_9668b2ebba1857::t_cd3cac781d5974 12-14,18-19,21
+src/main.ts
+  s_9668b2ebba1857::t_312b8dd02243ce 3-4,30-31,33,39-41,46,48-49,51
+src/photo.ts
+  s_9668b2ebba1857::t_312b8dd02243ce 1,6-22,26,36
+src/styles.ts
+  s_9668b2ebba1857::t_312b8dd02243ce 3
+index.html
+  s_9668b2ebba1857::t_312b8dd02243ce 7,14-15
+src/group.ts
+  s_9668b2ebba1857::t_312b8dd02243ce 1-7
+src/page.ts
+  s_9668b2ebba1857::t_312b8dd02243ce 1-6,18-105
+  s_9668b2ebba1857::t_819ad90f58b618 7-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6900fd31f3f14645fd5b7b279b9a1fa3268b6eee",
+  "prompts": {},
+  "sessions": {
+    "s_9668b2ebba1857": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c0fa840-0c67-46be-a849-d7b5165f6911",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Cassio Zen <cassiozen@gmail.com>"
+    }
+  }
+}
