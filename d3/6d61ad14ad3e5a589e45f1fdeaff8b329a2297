@@ -1,0 +1,28 @@
+package.json
+  s_9668b2ebba1857::t_36b758e85a74e3 15
+  s_9668b2ebba1857::t_0bc8fdb7fc0d9a 7-12
+  s_9668b2ebba1857::t_71b4ee425b6ae8 16
+  s_9668b2ebba1857::t_6d0f0eabf1f515 4
+vite.config.ts
+  s_9668b2ebba1857::t_6d0f0eabf1f515 10-22
+  s_9668b2ebba1857::t_0bc8fdb7fc0d9a 1,3
+  s_9668b2ebba1857::t_02c37524a765b8 7,9
+pnpm-lock.yaml
+  s_9668b2ebba1857::t_c515fa9d432281 1-1842
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d36d61ad14ad3e5a589e45f1fdeaff8b329a2297",
+  "prompts": {},
+  "sessions": {
+    "s_9668b2ebba1857": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c0fa840-0c67-46be-a849-d7b5165f6911",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Cassio Zen <cassiozen@gmail.com>"
+    }
+  }
+}
