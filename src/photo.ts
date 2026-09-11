@@ -1,7 +1,7 @@
 import me from './me.jpg?inline'
 import { hint } from './styles'
 
-const SIZE = 120
+const SIZE = 96
 
 // Consoles have no <img>. The styled `%c` span renders inside the devtools
 // document, so relative/page URLs never resolve: inline as a data URI.
@@ -14,7 +14,7 @@ export const renderPhoto = () => {
       `background: url(${me}) center / contain no-repeat;`,
       `padding: ${SIZE / 2}px;`,
       `line-height: ${SIZE}px;`,
-      'border-radius: 50%;',
+      'border-radius: 8px;',
       'font-size: 0;',
     ].join(''),
   )

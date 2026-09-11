@@ -1,27 +1,20 @@
-// Palette tuned to stay legible on both light and dark devtools themes:
-// mid-saturation foregrounds, or padded backgrounds with fixed text color.
+// Deliberately quiet: one accent, one muted gray, everything else inherits
+// the console's own text color so it reads the same on light and dark themes.
+const accent = '#8b5cf6'
+const muted = '#8a8a8a'
 const mono = 'font-family: ui-monospace, Menlo, Consolas, monospace;'
 
 export const s = {
-  banner: [
-    'font-size: 28px;',
-    'font-weight: 800;',
-    'letter-spacing: 2px;',
-    'color: #fff;',
-    'background: linear-gradient(90deg, #7c3aed, #db2777, #f59e0b);',
-    'padding: 10px 18px;',
-    'border-radius: 8px;',
-    'text-shadow: 0 1px 2px rgba(0,0,0,.4);',
-  ].join(''),
-  title: 'font-size: 15px; font-weight: 700; color: #a855f7;',
-  subtitle: 'font-size: 13px; font-style: italic; color: #ec4899;',
-  h: 'font-size: 13px; font-weight: 700; color: #f59e0b;',
-  body: 'font-size: 13px; color: inherit;',
-  strong: 'font-size: 13px; font-weight: 700; color: #22c55e;',
-  dim: 'color: #888; font-style: italic;',
-  code: `${mono} background: #7c3aed; color: #fff; padding: 1px 6px; border-radius: 4px;`,
-  link: 'color: #3b82f6; text-decoration: underline;',
-  bullet: 'color: #f59e0b; font-weight: 700;',
+  banner: 'font-size: 20px; font-weight: 700; letter-spacing: 1px;',
+  title: 'font-weight: 600;',
+  subtitle: `font-style: italic; color: ${muted};`,
+  h: `font-weight: 700; color: ${accent};`,
+  body: '',
+  strong: 'font-weight: 600;',
+  dim: `color: ${muted}; font-style: italic;`,
+  code: `${mono} color: ${accent};`,
+  link: `color: ${accent}; text-decoration: underline;`,
+  bullet: `color: ${accent};`,
 }
 
 // Builds a `%c` format string plus its style args from [text, style] pairs,

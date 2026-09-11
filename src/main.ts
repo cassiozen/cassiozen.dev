@@ -29,7 +29,7 @@ Object.assign(window, {
 
 console.time('boot')
 renderPhoto()
-console.log(...styled([` ${me.name.toUpperCase()} `, s.banner]))
+console.log(...styled([me.name, s.banner]))
 console.log(...styled([me.title, s.title], ['  ·  ', s.dim], [me.socialBio, s.subtitle]))
 console.log('')
 console.log(
