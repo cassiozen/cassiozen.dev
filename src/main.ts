@@ -6,7 +6,7 @@ import { me } from './data'
 import { Group } from './group'
 import { handheld, installPanel, showPanel } from './panel'
 import { photo, renderPhoto } from './photo'
-import { hint, s, styled } from './styles'
+import { s, styled } from './styles'
 
 declare global {
   interface Window {
@@ -39,7 +39,6 @@ showSource(handheld ? showPanel : undefined)
 await new Promise((r) => setTimeout(r, 150))
 console.clear()
 
-console.time('boot')
 await renderPhoto()
 console.log(...styled([me.name, s.banner]))
 console.log(...styled([me.title, s.title], ['  ·  ', s.dim], [me.socialBio, s.subtitle]))
@@ -50,5 +49,3 @@ Group.Collapsed(...styled(['all commands', s.dim]))
 help()
 Group.End()
 console.debug('%o', { builtWith: ['Vite+', 'TypeScript 7'], frameworks: 'none', css: 'seven rules, for the glow' })
-console.timeEnd('boot')
-hint('(that timer is the entire page load, photo included. no framework was harmed.)')
