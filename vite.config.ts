@@ -4,13 +4,6 @@ import { defineConfig } from 'vite-plus'
 export default defineConfig({
   build: {
     reportCompressedSize: false,
-    rolldownOptions: {
-      output: {
-        minify: {
-          compress: { dropConsole: true, dropDebugger: true },
-        },
-      },
-    },
   },
   lint: {
     ignorePatterns: ['dist/**'],
