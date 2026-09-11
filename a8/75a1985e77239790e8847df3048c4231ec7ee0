@@ -1,0 +1,23 @@
+src/styles.ts
+  s_9668b2ebba1857::t_dcfb389d68aeab 1-4,8-17
+src/photo.ts
+  s_9668b2ebba1857::t_dcfb389d68aeab 4,17
+src/main.ts
+  s_9668b2ebba1857::t_dcfb389d68aeab 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a875a1985e77239790e8847df3048c4231ec7ee0",
+  "prompts": {},
+  "sessions": {
+    "s_9668b2ebba1857": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c0fa840-0c67-46be-a849-d7b5165f6911",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Cassio Zen <cassiozen@gmail.com>"
+    }
+  }
+}
