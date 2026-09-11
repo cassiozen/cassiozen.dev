@@ -1,21 +1,23 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite-plus'
 
-// https://vitejs.dev/config/
+// https://viteplus.dev/config/
 export default defineConfig({
   build: {
-    minify: 'terser',
-    cssMinify: true,
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    },
     reportCompressedSize: false,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks: undefined
-      }
-    }
-  }
+        minify: {
+          compress: { dropConsole: true, dropDebugger: true },
+        },
+      },
+    },
+  },
+  lint: {
+    ignorePatterns: ['dist/**'],
+  },
+  fmt: {
+    semi: false,
+    singleQuote: true,
+    ignorePatterns: ['.claude/**', 'pnpm-lock.yaml'],
+  },
 })

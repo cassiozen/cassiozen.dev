@@ -1,15 +1,18 @@
 {
   "name": "cassiozen-site",
-  "private": true,
   "version": "0.2.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vp dev",
+    "build": "tsc --noEmit && vp build",
+    "preview": "vp preview",
+    "check": "vp check",
+    "typecheck": "tsc --noEmit",
+    "test": "vp test"
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "typescript": "^7.0.2",
+    "vite-plus": "^0.3.1"
   }
 }
