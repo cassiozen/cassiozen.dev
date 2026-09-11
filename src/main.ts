@@ -1,4 +1,4 @@
-import { about, contact, help, highlightsCmd, linksCmd, story, work } from './commands'
+import { about, contact, help, highlightsCmd, linksCmd, work } from './commands'
 import { me } from './data'
 import { photo, renderPhoto } from './photo'
 import { hint, s, styled } from './styles'
@@ -11,7 +11,6 @@ declare global {
     highlights: typeof highlightsCmd
     links: typeof linksCmd
     contact: typeof contact
-    story: typeof story
     photo: typeof photo
   }
 }
@@ -23,7 +22,6 @@ Object.assign(window, {
   highlights: highlightsCmd,
   links: linksCmd,
   contact,
-  story,
   photo,
 })
 

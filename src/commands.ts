@@ -1,4 +1,4 @@
-import { companies, email, highlights, links, me, storyLines } from './data'
+import { companies, email, highlights, links, me } from './data'
 import { hint, s, styled } from './styles'
 
 const commands = {
@@ -8,7 +8,6 @@ const commands = {
   'highlights()': 'things worth mentioning',
   'links()': 'find him elsewhere',
   'contact()': 'drop a line',
-  'story()': 'sit back, there is a story',
   'photo()': 'put a face to the name',
 }
 
@@ -55,29 +54,4 @@ export const contact = () => {
   console.log(...styled(['Or any of these: ', s.body], [links.map((l) => l.network).join(' · '), s.strong]))
   console.assert(navigator.onLine, 'you appear to be offline, which makes emailing tricky')
   hint('replies not guaranteed to be pragmatic, but the code will be')
-}
-
-let storyTimer: ReturnType<typeof setTimeout> | undefined
-
-export const story = () => {
-  if (storyTimer) {
-    console.warn('one story at a time. patience.')
-    return
-  }
-  console.count('story requests')
-  console.time('story')
-  let i = 0
-  const tick = () => {
-    const line = storyLines[i]
-    if (line === undefined) {
-      storyTimer = undefined
-      console.timeEnd('story')
-      hint('the end. try highlights() for the non-fiction version')
-      return
-    }
-    console.log(...styled(['› ', s.bullet], [line, s.body]))
-    i++
-    storyTimer = setTimeout(tick, 2200)
-  }
-  tick()
 }

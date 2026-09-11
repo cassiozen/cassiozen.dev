@@ -6,7 +6,7 @@ export const me = {
 }
 
 export const companies = [
-  { company: 'StackBlitz', note: 'most recent' },
+  { company: 'Resend', note: 'most recent' },
   { company: 'Microsoft', note: '' },
   { company: 'Google', note: '' },
 ]
@@ -35,18 +35,3 @@ export const links = [
 
 // Assembled at call time so the address never appears whole in the bundle.
 export const email = () => ['cassiozen', '@', 'gmail', '.', 'com'].join('')
-
-export const storyLines = [
-  "Oh, hello there! I see you've found this console.",
-  "I'm not used to having visitors in this little corner of my website...",
-  'Wait. This IS the website. Never mind.',
-  'Did you know I once debugged a project while balancing my laptop on the fruit stand of a supermarket?',
-  'True story! The interactive installation was having issues right before the opening.',
-  'Still here?',
-  "Wow, you're really committed to this, aren't you?",
-  'My real passion is low-level browser APIs and gnarly architecture problems.',
-  'Give me a challenging architecture problem over a CSS animation any day!',
-  '...which might explain why this site has no CSS.',
-  'Fine. You win. Persistence champion.',
-  '...the real treasures were the console messages you read along the way.',
-]
