@@ -1,11 +1,12 @@
-import me from './me.jpg'
+import me from './me.jpg?inline'
 import { hint } from './styles'
 
 const SIZE = 120
 
-// Consoles have no <img>. Chrome renders a background-image on a `%c` span
-// whose box is inflated with padding. Firefox ignores url() backgrounds and
-// shows an empty line, hence the fallback hint in photo().
+// Consoles have no <img>. The styled `%c` span renders inside the devtools
+// document, so relative/page URLs never resolve: inline as a data URI.
+// Box is inflated with padding. Some consoles still drop url() backgrounds,
+// hence the fallback hint in photo().
 export const renderPhoto = () => {
   console.log(
     '%c ',
@@ -21,5 +22,5 @@ export const renderPhoto = () => {
 
 export const photo = () => {
   renderPhoto()
-  hint(`no face? your console skips background images. open it directly: ${location.origin}${me}`)
+  hint('no face? your console skips background images. LinkedIn has one.')
 }
