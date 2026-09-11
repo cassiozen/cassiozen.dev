@@ -1,0 +1,28 @@
+src/panel.ts
+  s_9668b2ebba1857::t_3e00766c9b72cb 38-39
+  s_9668b2ebba1857::t_6d82e29e812364 1-37,40-198
+.gitignore
+  s_9668b2ebba1857::t_3a5bb9d617f52b 18-20
+src/page.ts
+  s_9668b2ebba1857::t_41643545adcca8 2,68,106-109
+src/main.ts
+  s_9668b2ebba1857::t_6d82e29e812364 5,21,29-30,32
+vite.config.ts
+  s_9668b2ebba1857::t_3a5bb9d617f52b 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a1a96fb9f9d3d83ad58a06ba3e392747a0c76174",
+  "prompts": {},
+  "sessions": {
+    "s_9668b2ebba1857": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c0fa840-0c67-46be-a849-d7b5165f6911",
+        "model": "unknown"
+      },
+      "human_author": "Cassio Zen <cassiozen@gmail.com>"
+    }
+  }
+}
