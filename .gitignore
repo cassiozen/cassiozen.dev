@@ -15,3 +15,6 @@
 
 # typescript
 *.tsbuildinfo
+
+# playwright mcp scratch
+.playwright-mcp

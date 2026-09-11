@@ -1,4 +1,5 @@
 import { Group } from './group'
+import { showPanel } from './panel'
 import { accent } from './styles'
 
 // The page is this script. The inline <script> is made visible with CSS, and
@@ -64,6 +65,7 @@ const mark = {
   the(range: Range) {
     const m = document.createElement('mark')
     m.title = 'Cmd+Opt+J / Ctrl+Shift+J / F12'
+    m.onclick = showPanel
     range.surroundContents(m)
     return m
   },
@@ -101,5 +103,8 @@ export const showSource = () => {
     ranges.push(range)
     from = at + word.length
   }
-  ranges.map((range) => mark.the(range)).forEach((m, i) => setTimeout(() => m.classList.add('lit'), 1200 + i * 650))
+  const marks = ranges.map((range) => mark.the(range))
+  marks.forEach((m, i) => setTimeout(() => m.classList.add('lit'), 1200 + i * 650))
+  // No devtools on a phone, so once the sentence has been read, bring one.
+  if (matchMedia('(pointer: coarse)').matches) setTimeout(showPanel, 1200 + marks.length * 650 + 900)
 }

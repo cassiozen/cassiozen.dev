@@ -36,6 +36,6 @@ export default defineConfig({
   fmt: {
     semi: false,
     singleQuote: true,
-    ignorePatterns: ['.claude/**', 'pnpm-lock.yaml'],
+    ignorePatterns: ['.claude/**', '.playwright-mcp/**', 'pnpm-lock.yaml'],
   },
 })
