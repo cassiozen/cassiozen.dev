@@ -1,6 +1,7 @@
 // Import order is bundle order. page first keeps its lit words near the top
 // of the wall, right after Group.Open.
 import { showSource } from './page'
+import { analyticsBlocked } from './adblock'
 import { about, contact, help, highlightsCmd, linksCmd, work } from './commands'
 import { me } from './data'
 import { Group } from './group'
@@ -47,3 +48,10 @@ Group.End()
 console.debug('%o', { builtWith: ['Vite+', 'TypeScript 7'], frameworks: 'none', css: 'seven rules, for the glow' })
 console.timeEnd('boot')
 hint('(that timer is the entire page load, photo included. no framework was harmed.)')
+
+if (await analyticsBlocked()) {
+  console.log('')
+  console.log(
+    ...styled(["Oh, I see your ad blocker didn't let my analytics run. ", s.body], ['No hard feelings.', s.dim]),
+  )
+}
