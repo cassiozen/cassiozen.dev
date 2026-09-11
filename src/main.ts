@@ -1,8 +1,10 @@
+// Import order is bundle order. page first keeps its lit words near the top
+// of the wall, right after Group.Open.
+import { showSource } from './page'
 import { about, contact, help, highlightsCmd, linksCmd, work } from './commands'
 import { me } from './data'
 import { Group } from './group'
-import { showSource } from './page'
-import { installPanel } from './panel'
+import { handheld, installPanel, showPanel } from './panel'
 import { photo, renderPhoto } from './photo'
 import { hint, s, styled } from './styles'
 
@@ -30,7 +32,7 @@ const commands = {
 Object.assign(window, commands)
 
 installPanel(commands)
-showSource()
+showSource(handheld ? showPanel : undefined)
 
 console.time('boot')
 await renderPhoto()

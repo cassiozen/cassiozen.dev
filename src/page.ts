@@ -1,9 +1,22 @@
 import { Group } from './group'
-import { handheld, showPanel } from './panel'
 import { accent } from './styles'
 
 // The page is this script. The inline <script> is made visible with CSS, and
 // three of its own identifiers are wrapped in <mark> and lit up in sequence.
+
+const mark = {
+  the(range: Range) {
+    const m = document.createElement('mark')
+    m.title = 'Cmd+Opt+J / Ctrl+Shift+J / F12'
+    range.surroundContents(m)
+    return m
+  },
+}
+
+// Nothing here spells the sentence out. Each word is borrowed from an
+// identifier that survives minification: a Group mode, mark.the above, and
+// the console namespace's own toStringTag ("[object console]").
+const sentence = [Group.Open.name, mark.the.name, Object.prototype.toString.call(console).slice(8, -1)]
 
 // One rule per line here; joined without newlines so the CSS shows up in the
 // wall of text as just another long minified line.
@@ -66,22 +79,9 @@ const findWord = (src: string, word: string, from: number): number => {
   return -1
 }
 
-const mark = {
-  the(range: Range) {
-    const m = document.createElement('mark')
-    m.title = 'Cmd+Opt+J / Ctrl+Shift+J / F12'
-    if (handheld) m.onclick = showPanel
-    range.surroundContents(m)
-    return m
-  },
-}
-
-// Nothing here spells the sentence out. Each word is borrowed from an
-// identifier that survives minification: a Group mode, mark.the above, and
-// the console namespace's own toStringTag ("[object console]").
-const sentence = [Group.Open.name, mark.the.name, Object.prototype.toString.call(console).slice(8, -1)]
-
-export const showSource = () => {
+// `fallback` is for devices with no devtools: tapping a lit word runs it, and
+// it runs on its own once the sentence has been read.
+export const showSource = (fallback?: () => void) => {
   const sheet = new CSSStyleSheet()
   sheet.replaceSync(css)
   document.adoptedStyleSheets.push(sheet)
@@ -110,6 +110,8 @@ export const showSource = () => {
   }
   const marks = ranges.map((range) => mark.the(range))
   marks.forEach((m, i) => setTimeout(() => m.classList.add('lit'), 1200 + i * 650))
-  // No devtools on a phone, so once the sentence has been read, bring one.
-  if (handheld) setTimeout(showPanel, 1200 + marks.length * 650 + 900)
+  if (fallback) {
+    for (const m of marks) m.onclick = fallback
+    setTimeout(fallback, 1200 + marks.length * 650 + 900)
+  }
 }
