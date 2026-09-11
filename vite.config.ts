@@ -15,7 +15,9 @@ const inlineEntry = (): Plugin => ({
         const chunk = bundle[file]
         if (chunk?.type !== 'chunk') return tag
         delete bundle[file]
-        inline = `<script type="module">\n${chunk.code.replace(/<\/script/g, '<\\/script')}</script>`
+        // Minifier strips comments, so the one line meant to be read goes in here.
+        const banner = '// This script is the whole site. It draws itself. Open the console.'
+        inline = `<script type="module">${banner}\n${chunk.code.replace(/<\/script/g, '<\\/script')}</script>`
         return ''
       })
       return html.replace('</body>', `${inline}\n</body>`)

@@ -46,13 +46,18 @@ const skipHole = (src: string, i: number): number => {
   return i
 }
 
-// First whole-word `word` in code at or after `from`. String literals are
-// skipped, so prose in the data can never match.
+// First whole-word `word` in code at or after `from`. String literals and
+// comments are skipped, so neither prose nor the banner line can match.
 const findWord = (src: string, word: string, from: number): number => {
   let i = from
   while (i < src.length) {
     if (QUOTES.has(src[i])) {
       i = skipString(src, i)
+      continue
+    }
+    if (src.startsWith('//', i)) {
+      const eol = src.indexOf('\n', i)
+      i = eol < 0 ? src.length : eol
       continue
     }
     if (src.startsWith(word, i) && !isWord(src[i - 1]) && !isWord(src[i + word.length])) return i
