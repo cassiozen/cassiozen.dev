@@ -1,7 +1,6 @@
 // Import order is bundle order. page first keeps its lit words near the top
 // of the wall, right after Group.Open.
 import { showSource } from './page'
-import { analyticsBlocked } from './adblock'
 import { about, contact, help, highlightsCmd, linksCmd, work } from './commands'
 import { me } from './data'
 import { Group } from './group'
@@ -35,13 +34,10 @@ Object.assign(window, commands)
 installPanel(commands)
 showSource(handheld ? showPanel : undefined)
 
-// A blocked beacon leaves a red error and a warning at the top of the console.
-// Give them a beat to land, wipe them, and own up to it at the end.
-const blocked = await analyticsBlocked()
-if (blocked) {
-  await new Promise((r) => setTimeout(r, 150))
-  console.clear()
-}
+// Ad blockers leave a red error and a warning at the top when they stop
+// Cloudflare's analytics beacon. Give those a beat to land, then wipe.
+await new Promise((r) => setTimeout(r, 150))
+console.clear()
 
 console.time('boot')
 await renderPhoto()
@@ -56,13 +52,3 @@ Group.End()
 console.debug('%o', { builtWith: ['Vite+', 'TypeScript 7'], frameworks: 'none', css: 'seven rules, for the glow' })
 console.timeEnd('boot')
 hint('(that timer is the entire page load, photo included. no framework was harmed.)')
-
-if (blocked) {
-  console.log('')
-  console.log(
-    ...styled(
-      ["Oh, I see your ad blocker didn't let my analytics run. ", s.body],
-      ['I swept up the error it left behind. No hard feelings.', s.dim],
-    ),
-  )
-}
