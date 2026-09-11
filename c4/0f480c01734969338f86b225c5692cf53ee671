@@ -1,0 +1,22 @@
+src/page.ts
+  s_9668b2ebba1857::t_9731b55b9d296f 49-50,58-60
+  s_9668b2ebba1857::t_7a35445b1ed6a8 61-62
+vite.config.ts
+  s_9668b2ebba1857::t_9731b55b9d296f 18-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c40f480c01734969338f86b225c5692cf53ee671",
+  "prompts": {},
+  "sessions": {
+    "s_9668b2ebba1857": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3c0fa840-0c67-46be-a849-d7b5165f6911",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Cassio Zen <cassiozen@gmail.com>"
+    }
+  }
+}
