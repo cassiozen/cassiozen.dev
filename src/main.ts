@@ -1,5 +1,7 @@
 import { about, contact, help, highlightsCmd, linksCmd, work } from './commands'
 import { me } from './data'
+import { Group } from './group'
+import { showSource } from './page'
 import { photo, renderPhoto } from './photo'
 import { hint, s, styled } from './styles'
 
@@ -25,23 +27,25 @@ Object.assign(window, {
   photo,
 })
 
+showSource()
+
 console.time('boot')
-renderPhoto()
+await renderPhoto()
 console.log(...styled([me.name, s.banner]))
 console.log(...styled([me.title, s.title], ['  ·  ', s.dim], [me.socialBio, s.subtitle]))
 console.log('')
 console.log(
   ...styled(
-    ['The page is blank on purpose. ', s.body],
-    ['Everything', s.strong],
-    [' lives here in the console.', s.body],
+    ['You made it. That wall of code out there is this script. ', s.body],
+    ['This', s.strong],
+    [' is where it runs.', s.body],
   ),
 )
 console.log(...styled(['Start with ', s.body], ['about()', s.code], ['  or  ', s.dim], ['help()', s.code]))
 console.log('')
-console.groupCollapsed(...styled(['all commands', s.dim]))
+Group.Collapsed(...styled(['all commands', s.dim]))
 help()
-console.groupEnd()
-console.debug('%o', { builtWith: ['Vite+', 'TypeScript 7'], css: 'none', frameworks: 'none' })
+Group.End()
+console.debug('%o', { builtWith: ['Vite+', 'TypeScript 7'], frameworks: 'none', css: 'seven rules, for the glow' })
 console.timeEnd('boot')
-hint('(that timer is the entire page load. no framework was harmed.)')
+hint('(that timer is the entire page load, photo included. no framework was harmed.)')

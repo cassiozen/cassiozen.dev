@@ -1,6 +1,6 @@
 // Deliberately quiet: one accent, one muted gray, everything else inherits
 // the console's own text color so it reads the same on light and dark themes.
-const accent = '#8b5cf6'
+export const accent = '#8b5cf6'
 const muted = '#8a8a8a'
 const mono = 'font-family: ui-monospace, Menlo, Consolas, monospace;'
 

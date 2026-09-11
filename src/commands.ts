@@ -1,4 +1,5 @@
 import { companies, email, highlights, links, me } from './data'
+import { Group } from './group'
 import { hint, s, styled } from './styles'
 
 const commands = {
@@ -14,15 +15,15 @@ const commands = {
 export const help = () => {
   console.log(...styled(['Commands', s.h], [' - call any of these:', s.body]))
   console.table(commands)
-  hint('pro tip: console.clear() wipes the slate')
+  hint('pro tip: clear() wipes the slate')
 }
 
 export const about = () => {
-  console.group(...styled([me.name, s.title], [`  ${me.title}`, s.dim]))
+  Group.Open(...styled([me.name, s.title], [`  ${me.title}`, s.dim]))
   console.log(...styled([me.bio, s.body]))
   console.log(...styled(['Recent roles: ', s.body], [companies.map((c) => c.company).join(', '), s.strong]))
   console.log(...styled([`"${me.socialBio}"`, s.subtitle]))
-  console.groupEnd()
+  Group.End()
   hint('next: work(), highlights(), links()')
 }
 
@@ -33,12 +34,12 @@ export const work = () => {
 }
 
 export const highlightsCmd = () => {
-  console.group(...styled(['Worth mentioning', s.h]))
+  Group.Open(...styled(['Worth mentioning', s.h]))
   for (const h of highlights) {
     console.log(...styled(['▸ ', s.bullet], [h.what, s.strong], ['  ' + h.detail, s.body]))
     if (h.url) console.log(...styled(['    ' + h.url, s.link]))
   }
-  console.groupEnd()
+  Group.End()
   hint('want to say hi? contact()')
 }
 
