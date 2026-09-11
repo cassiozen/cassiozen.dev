@@ -24,9 +24,9 @@ const css = [
   ':root{color-scheme:light dark}',
   'body{margin:0;padding:16px;background:Canvas;color:color-mix(in srgb,CanvasText 32%,Canvas)}',
   'body>script,body>pre{display:block;margin:0;font:13px/1.7 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}',
-  'mark{color:inherit;background:none;transition:color .8s,text-shadow .8s}',
-  `mark.lit{color:${accent};text-shadow:0 0 12px ${accent};cursor:help;animation:breathe 2.6s ease-in-out infinite alternate}`,
-  `@keyframes breathe{to{text-shadow:0 0 3px ${accent}}}`,
+  'mark{color:inherit;background:none;border-radius:3px;padding:0 3px;margin:0 -3px;transition:color .4s,background .4s,text-shadow .4s}',
+  `mark.lit{color:${accent};font-weight:700;background:color-mix(in srgb,${accent} 18%,transparent);text-shadow:0 0 16px ${accent};cursor:help;animation:breathe 1.6s ease-in-out infinite alternate}`,
+  `@keyframes breathe{to{text-shadow:0 0 4px ${accent};background:color-mix(in srgb,${accent} 8%,transparent)}}`,
   '@media (prefers-reduced-motion:reduce){mark.lit{animation:none}}',
 ].join('')
 
@@ -109,9 +109,11 @@ export const showSource = (fallback?: () => void) => {
     from = at + word.length
   }
   const marks = ranges.map((range) => mark.the(range))
-  marks.forEach((m, i) => setTimeout(() => m.classList.add('lit'), 1200 + i * 650))
+  const first = 600
+  const gap = 500
+  marks.forEach((m, i) => setTimeout(() => m.classList.add('lit'), first + i * gap))
   if (fallback) {
     for (const m of marks) m.onclick = fallback
-    setTimeout(fallback, 1200 + marks.length * 650 + 900)
+    setTimeout(fallback, first + marks.length * gap + 900)
   }
 }
